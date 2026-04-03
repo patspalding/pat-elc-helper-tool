@@ -1,4 +1,7 @@
 # Imports
+import matplotlib
+matplotlib.use('TkAgg')
+
 import numpy as np
 from glob import glob
 

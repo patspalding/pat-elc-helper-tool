@@ -49,54 +49,62 @@ On launch, a GUI window will appear with the following sections:
 
 ### DATA SETTINGS
 
-  Target Name
-    Enter the name of the target system (e.g. "KIC 12345678", "TIC 987654321",
-    or a resolvable name like "V404 Cyg"). Kepler targets must be resolvable
-    to a KIC number via SIMBAD; TESS targets must resolve to a TIC number.
+  #### Target Name
+  
+  Enter the name of the target system (e.g. "KIC 12345678", "TIC 987654321", or a resolvable name like "V404 Cyg"). Kepler targets must be resolvable to a KIC number via SIMBAD; TESS targets must resolve to a TIC number.
 
-  Instrument Data to Use
+  #### Instrument Data to Use
     
   Select one or both of:
     
-  Kepler - Downloads and processes Kepler long-cadence (LC) and short-cadence (SC) light curve FITS files.
+  ##### Kepler
+  Downloads and processes Kepler long-cadence (LC) and short-cadence (SC) light curve FITS files.
     
-  TESS - Downloads and processes TESS light curve FITS files.
+  ##### TESS
+  Downloads and processes TESS light curve FITS files.
 
 ### ECLIPSE TIMES
-  Find Eclipse Times from...
-
-
-  #### Fitting Light Curve Data
+  #### Find Eclipse Times from...
+  
+  ##### Fitting Light Curve Data
   The tool will search for eclipses in the data using SciPy peak detection and Gaussian fitting. Requires the following bounds to be specified:
   
   Eclipse Depth Min and Max (Fractional Flux) - The minimum and maximum fractional flux depth of eclipses to search for. Values must be between 0 and 1 (e.g. 0.01 and 0.5).
 
   Eclipse Duration Min and Max (Days) - The minimum and maximum duration (beginning of ingress to end of egress) of eclipses in days (e.g. 0.05 and 0.5).
 
-  #### Reading ELC Eclipse Times File"
+  ##### Reading ELC Eclipse Times File
   The tool will read eclipse midpoint times from previously generated ELC eclipse times output files. Requires the path to the folder containing those files to be specified in the "Folder Containing Eclipse Data" field.
 
-  Eclipse Times to Remove from Data - Enter a space-separated list of eclipse midpoint times (in BJD - 2,455,000) to exclude from processing, e.g. for known contaminated eclipses.
+  #### Eclipse Times to Remove from Data 
+  Enter a space-separated list of eclipse midpoint times (in BJD - 2,455,000) to exclude from processing, e.g. for known contaminated eclipses.
 
 ### GENERATE FILES
 
   Select which output files to generate (see OUTPUT FILES section below):
 
-  Eclipse Time Files - Generates a file of eclipse midpoint times
+  #### Eclipse Time Files
+  Generates a file of eclipse midpoint times.
 
-  ELCgap.inp File - Generates an ELCgap.inp file 
+  #### ELCgap.inp File
+  Generates an ELCgap.inp file, which contains a list of start and end times for "gaps" that ELC will ignore when making forward models. 
 
-  ELCSC.inp File - Generates the short-cadence time range file (enabled only when Kepler is selected)
+  #### ELCSC.inp File
+  Generates ELCSC.inp file, which contains a list of start and end times where the data are in short-cadence. Only available if Kepler data are being used.
 
-  Individual Eclipses to Seperate Files - Writes the detrended light curve for each eclipse to its own separate data file
+  #### Individual Eclipses to Seperate Files
+  Writes the detrended light curve for each eclipse to its own separate data file.
 
-  Instrument Data to File - Writes the full detrended light curve for each instrument to its own file
+  #### Instrument Data to File
+  Writes the full detrended light curve for each instrument to its own file.
 
 ### PLOT SETTINGS
 
-  Plot Detrended Data - If checked, displays the light curve plot of the detrended data after processing. 
+  #### Plot Detrended Data
+  If checked, displays the light curve plot of the detrended data after processing. 
 
-  Save Plots? - If checked, saves the plot as a PNG to the images/ subdirectory.
+  #### Save Plots?
+  If checked, saves the plot as a PNG to the images/ subdirectory.
 
 ### VERBOSITY
   Controls how much information is printed to the console during processing:
@@ -109,9 +117,11 @@ On launch, a GUI window will appear with the following sections:
 
 ### RUN / EXIT
 
-  Run - Validates inputs and begins processing. The button is disabled while the tool is running to prevent duplicate runs.
+  #### Run
+  Validates inputs and begins processing. The button is disabled while the tool is running to prevent duplicate runs.
   
-  Exit - Closes the tool.
+  #### Exit
+  Closes the tool.
 
 ### CONSOLE OUTPUT
   The scrollable text area at the bottom of the window displays status messages, warnings, and errors generated during processing.
@@ -120,31 +130,31 @@ On launch, a GUI window will appear with the following sections:
 
 All output files are written to a subdirectory named after the target (lowercase, spaces replaced with underscores), e.g. "kic_12345678/".
 
-  {target}/{target}_{instrument}_photo.dat
+  ### {target}/{target}_{instrument}_photo.dat
   
   Tab-separated file containing the detrended light curve for a given instrument. Columns: time (BJD - 2,455,000), normalised flux, flux error.
 
-  {target}/ELCSC.inp
+  ### {target}/ELCSC.inp
   
   Tab-separated file listing the start and end times of each Kepler short-cadence data segment. Used by ELC to identify SC time ranges. Only generated when Kepler data is selected.
 
-  {target}/ELCgap.inp
+  ### {target}/ELCgap.inp
     
   Tab-separated file listing time gaps larger than 1 day in the combined light curve. Each row contains the end time of one segment and the start time of the next. Used by ELC to skip over gaps in data for efficiency.
 
-  {target}/{target}_{type}time.dat
+  ### {target}/{target}_{type}time.dat
   
   Tab-separated eclipse time files, one per eclipse type (e.g. prim, sec, primtrans, sectrans). Columns: eclipse number, midpoint time (BJD - 2,455,000), midpoint error. Intended to be used as eclipse time input file to ELC. If an ELC eclipse time file is used to find eclipse times, eclipse type will be based from the ELC eclipse time filename. Otherwise, all eclipses will be designated type "ecl" and output to a single file.
     
-  {target}/ecl_data/{target}_{type}{N}.dat
+  ### {target}/ecl_data/{target}_{type}{N}.dat
   
   Individual eclipse data files, one per eclipse event. {N} is an arbitrary number used to differentiate eclipses and should not be confused with  the eclipse number based on period.  Columns: time, normalised flux, flux error. Intended to be used for detailed midpoint fitting in ELC. 
     
-  images/{title}.png
-    Light curve plot images, saved if "Save Plots?" is checked.
+  ### images/{title}.png
+  
+  Light curve plot images, saved if "Save Plots?" is checked.
 
-MAST data is downloaded to a mast_data/ subdirectory in the working directory
-and is cached so subsequent runs do not re-download existing files.
+MAST data is downloaded to a mast_data/ subdirectory in the working directory and is cached so subsequent runs do not re-download existing files.
 
 ## SUMMARY OF TOOL FUNCTIONS
 

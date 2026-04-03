@@ -247,9 +247,10 @@ saves the plots if the "Save Plots?" option was selected.
 
 ### Eclipse type
   If the "Fitting Light Curve Data" option is selected for finding eclipse midpoint
-  times, the 
-
-
+  times, the tool will not distinguish between eclipses of different types. This
+  mostly causes issues when estimating the eclipse number (see "Eclipse number
+  estimation", below).
+  
 ### Eclipse number estimation
   If only one eclipse is present in the data, or if the "Fitting Light Curve Data"
   option is selected for finding eclipse midpoint times, eclipse number

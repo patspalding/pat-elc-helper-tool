@@ -17,9 +17,9 @@ Download the appropriate pre-built executable for your operating system:
 
 ### Windows
 
-  Download pats_elc_helper_tool_windows.exe and place it in a working directory of your choice. Double-click to run, or launch from a terminal:
+  Download pats_elc_helper_tool_windows.exe from [this link](https://github.com/patspalding/pat-elc-helper-tool/blob/main/pats_elc_helper_tool.exe) and place it in a working directory of your choice. Double-click to run, or launch from a terminal:
   
-    pats_elc_helper_tool_windows.exe
+    pats_elc_helper_tool.exe
     
   The tool will create subdirectories in the same folder for downloaded MAST data and generated output files.
 
@@ -27,9 +27,9 @@ Download the appropriate pre-built executable for your operating system:
 
   Download pats_elc_helper_tool_mac and place it in a working directory. The first time you run it, macOS may block the executable as it is from an unidentified developer. To allow it, open Terminal, navigate to the directory containing the file, and run:
     
-    chmod +x pats_elc_helper_tool_mac
+    chmod +x pats_elc_helper_tool
     
-    ./pats_elc_helper_tool_mac
+    ./pats_elc_helper_tool
     
 
 Alternatively, right-click the file in Finder, select Open, and confirm when prompted.

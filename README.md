@@ -17,7 +17,7 @@ Download the appropriate pre-built executable for your operating system:
 
 ### Windows
 
-  Download pats_elc_helper_tool_windows.exe from [this link](https://github.com/patspalding/pat-elc-helper-tool/blob/main/pats_elc_helper_tool.exe) and place it in a working directory of your choice. Double-click to run, or launch from a terminal:
+  Download pats_elc_helper_tool.exe from [this link](https://github.com/patspalding/pat-elc-helper-tool/blob/main/pats_elc_helper_tool.exe) and place it in a working directory of your choice. Double-click to run, or launch from a terminal:
   
     pats_elc_helper_tool.exe
     

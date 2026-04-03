@@ -15,17 +15,20 @@ for targets with a large amount of Kepler and TESS data) is also required.
 Download the appropriate pre-built executable for your operating system:
 
   Windows  - pats_elc_helper_tool_windows.exe
+  
   macOS    - pats_elc_helper_tool_macos
 
 Windows
   Download pats_elc_helper_tool_windows.exe and place it in a working directory of your choice. Double-click to run, or launch from a terminal:
     pats_elc_helper_tool_windows.exe
+    
   The tool will create subdirectories in the same folder for downloaded MAST data and generated output files.
 
 macOS
   Download pats_elc_helper_tool_mac and place it in a working directory. The first time you run it, macOS may block the executable as it is from an unidentified developer. To allow it, open Terminal, navigate to the directory containing the file, and run:
     chmod +x pats_elc_helper_tool_mac
     ./pats_elc_helper_tool_mac
+    
   Alternatively, right-click the file in Finder, select Open, and confirm when prompted.
 
 Linux
@@ -57,33 +60,26 @@ On launch, a GUI window will appear with the following sections:
 ### ECLIPSE TIMES
   Find Eclipse Times from...
 
-    \"Fitting Light Curve Data\"
-      The tool will search for eclipses in the data using SciPy peak detection
-      and Gaussian fitting. Requires the following bounds to be specified:
+  "Fitting Light Curve Data"
+    The tool will search for eclipses in the data using SciPy peak detection and Gaussian fitting. Requires the following bounds to be specified:
 
-        Eclipse Depth Min and Max (Fractional Flux)
-          The minimum and maximum fractional flux depth of eclipses to search
-          for. Values must be between 0 and 1 (e.g. 0.01 and 0.5).
+  Eclipse Depth Min and Max (Fractional Flux)
+    The minimum and maximum fractional flux depth of eclipses to search for. Values must be between 0 and 1 (e.g. 0.01 and 0.5).
 
-        Eclipse Duration Min and Max (Days)
-          The minimum and maximum duration (beginning of ingress to end of
-          egress) of eclipses in days (e.g. 0.05 and 0.5).
+  Eclipse Duration Min and Max (Days)
+    The minimum and maximum duration (beginning of ingress to end of egress) of eclipses in days (e.g. 0.05 and 0.5).
 
-    \"Reading ELC Eclipse Times File\"
-      Reads eclipse midpoint times from previously generated ELC eclipse
-      times output files. Specify the path to the folder containing those
-      files in the "Folder Containing Eclipse Data" field.
+  "Reading ELC Eclipse Times File\"
+    Reads eclipse midpoint times from previously generated ELC eclipse times output files. Specify the path to the folder containing those files in the "Folder Containing Eclipse Data" field.
 
   Eclipse Times to Remove from Data
-    Optionally enter a space-separated list of eclipse midpoint times (in
-    BJD - 2,455,000) to exclude from processing, e.g. for known contaminated
-    eclipses.
+    Enter a space-separated list of eclipse midpoint times (in BJD - 2,455,000) to exclude from processing, e.g. for known contaminated eclipses.
 
 ### GENERATE FILES
   Select which output files to generate (see OUTPUT FILES section below):
 
-  Eclipse Time 
-    Generates files containing lists of eclipse times
+  Eclipse Time Files
+    Generates a file of eclipse midpoint times
 
   ELCgap.inp File
     Generates an ELCgap.inp file 
@@ -109,9 +105,9 @@ On launch, a GUI window will appear with the following sections:
 ### VERBOSITY
   Controls how much information is printed to the console during processing:
 
-    Quiet   - Prints only essential status messages and critical errors
-    Normal  - Prints standard progress updates (default)
-    Verbose - Prints detailed per-eclipse and per-file debug information
+  Quiet   - Prints only essential status messages and critical errors
+  Normal  - Prints standard progress updates (default)
+  Verbose - Prints detailed per-eclipse and per-file debug information
 
 ### RUN / EXIT
 
@@ -248,6 +244,11 @@ saves the plots if the "Save Plots?" option was selected.
   terminal window. These are a known CPython bug and do not affect the
   correctness of results. These should be suppressed within the tool's console
   output automatically.
+
+### Eclipse type
+  If the "Fitting Light Curve Data" option is selected for finding eclipse midpoint
+  times, the 
+
 
 ### Eclipse number estimation
   If only one eclipse is present in the data, or if the "Fitting Light Curve Data"

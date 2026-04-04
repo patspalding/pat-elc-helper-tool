@@ -9,13 +9,14 @@ An internet connection is required at runtime for downloading data from the MAST
 
 ## INSTALLATION
 
+The tool can be run from the OS-specific executables or from the Python source code. When run, the tool will create subdirectories in the same folder for downloaded MAST data and generated output files.
+
 ### Windows
 
   Download pats_elc_helper_tool.exe from [this link](https://github.com/patspalding/pat-elc-helper-tool/blob/main/pats_elc_helper_tool.exe) and place it in a working directory of your choice. Double-click to run, or launch from a terminal:
   
     pats_elc_helper_tool.exe
     
-  The tool will create subdirectories in the same folder for downloaded MAST data and generated output files.
 
 ### macOS
 
@@ -24,7 +25,6 @@ An internet connection is required at runtime for downloading data from the MAST
     chmod +x pats_elc_helper_tool
     
     ./pats_elc_helper_tool
-    
 
 Alternatively, right-click the file in Finder, select Open, and confirm when prompted.
 

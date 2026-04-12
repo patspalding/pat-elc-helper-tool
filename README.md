@@ -166,7 +166,7 @@ The tool then detrends the data using the eclipse midpoints and durations  from 
 
 If no flux data are returned by the detrender, the tool skips to the next instrument.
 
-The tool then attempts to remove bad data points caused by gamma rays. A data point is determined to have been caused a gamma ray if it is 5 standard deviations above the median out-of-eclipse flux data.
+The tool then attempts to remove bad data points caused by cosmic rays. A data point is determined to have been caused a cosmic ray if it is 5 standard deviations above the median out-of-eclipse flux data.
 
 The tool then cuts out any eclipses within 1 duration of any of the times entered by the user in the "Eclipse Times to Remove from Data" field.
 

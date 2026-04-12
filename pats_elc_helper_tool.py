@@ -458,9 +458,9 @@ def poly_detrender(time, flux, err, usable_time, usable_flux):
     
     return flux/trend, err/trend
 
-def remove_gamma_rays(flux_data,ecl_data):
+def remove_cosmic_rays(flux_data,ecl_data):
     """
-    Remove possible gamma rays; assumed to be any data 5 standard deviations above the out-of-eclipse median
+    Remove possible cosmic rays; assumed to be any data 5 standard deviations above the out-of-eclipse median
     """
     
     w_midpoints, w_in_eclipse = make_in_eclipse_mask(flux_data["time"],ecl_data)
@@ -469,9 +469,9 @@ def remove_gamma_rays(flux_data,ecl_data):
     med = np.median(out_eclipse_flux)
     noise = np.std(out_eclipse_flux)
 
-    w_gamma = (flux_data["flux"] > (med + 5*noise))
+    w_cosmic = (flux_data["flux"] > (med + 5*noise))
 
-    return flux_data[~w_gamma]
+    return flux_data[~w_cosmic]
 
 def get_elc_eclipse_times(ecl_path):
     """
@@ -819,10 +819,10 @@ def run_pipeline(target,instruments,ecl_times,ecl_bounds,ecl_path,bad_ecls,gen_e
             continue
         vprint(f"Detrender finished in {end-start:.2f}s.",level="normal") 
 
-        # Remove gamma rays
-        vprint("Removing gamma rays...",level="normal") 
-        flux_data[instrument] = remove_gamma_rays(flux_data[instrument],ecl_data[instrument])
-        vprint("Gamma rays removed.",level="normal") 
+        # Remove cosmic rays
+        vprint("Removing cosmic rays...",level="normal") 
+        flux_data[instrument] = remove_cosmic_rays(flux_data[instrument],ecl_data[instrument])
+        vprint("Cosmic rays removed.",level="normal") 
 
         # If the user chose to remove any eclipses from the data
         if len(bad_ecls) > 0:

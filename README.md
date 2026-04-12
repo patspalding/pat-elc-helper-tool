@@ -1,5 +1,5 @@
 # Pat's ELC Helper Tool
-Pat's ELC Helper Tool is a Python-based GUI utility for preparing Kepler and TESS light curve data for use with the ELC (Eclipsing Light Curve) Fortran software \([Orosz & Hauschildt, 2000](https://ui.adsabs.harvard.edu/abs/2000A&A...364..265O/abstract)\). It automates the process of downloading Kepler and TESS data from MAST, identifying eclipses, detrending the light curves, removing gamma rays from the data, and generating some of the input files required by ELC.
+Pat's ELC Helper Tool is a Python-based GUI utility for preparing Kepler and TESS light curve data for use with the ELC (Eclipsing Light Curve) Fortran software \([Orosz & Hauschildt, 2000](https://ui.adsabs.harvard.edu/abs/2000A&A...364..265O/abstract)\). It automates the process of downloading Kepler and TESS data from MAST, identifying eclipses, detrending the light curves, removing probable cosmic rays from the data, and generating some of the input files required by ELC.
 
 The source code can be viewed [here](https://github.com/patspalding/pat-elc-helper-tool/blob/main/pats_elc_helper_tool.py).
 

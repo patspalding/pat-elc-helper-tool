@@ -1,5 +1,5 @@
 # Pat's ELC Helper Tool
-Pat's ELC Helper Tool is a Python-based GUI utility for preparing Kepler and TESS light curve data for use with the ELC (Eclipsing Light Curve) Fortran software \([Orosz & Hauschildt, 2000](https://ui.adsabs.harvard.edu/abs/2000A&A...364..265O/abstract)\). It automates the process of downloading Kepler and TESS data from MAST, identifying eclipses, detrending the light curves, removing gamma rays from the data, and generating some of the input files required by ELC.
+Pat's ELC Helper Tool is a Python-based GUI utility for preparing Kepler and TESS light curve data for use with the ELC (Eclipsing Light Curve) Fortran software \([Orosz & Hauschildt, 2000](https://ui.adsabs.harvard.edu/abs/2000A&A...364..265O/abstract)\). It automates the process of downloading Kepler and TESS data from MAST, identifying eclipses, detrending the light curves, removing probable cosmic rays from the data, and generating some of the input files required by ELC.
 
 The source code can be viewed [here](https://github.com/patspalding/pat-elc-helper-tool/blob/main/pats_elc_helper_tool.py).
 
@@ -166,7 +166,7 @@ The tool then detrends the data using the eclipse midpoints and durations  from 
 
 If no flux data are returned by the detrender, the tool skips to the next instrument.
 
-The tool then attempts to remove bad data points caused by gamma rays. A data point is determined to have been caused a gamma ray if it is 5 standard deviations above the median out-of-eclipse flux data.
+The tool then attempts to remove bad data points caused by cosmic rays. A data point is determined to have been caused a cosmic ray if it is 5 standard deviations above the median out-of-eclipse flux data.
 
 The tool then cuts out any eclipses within 1 duration of any of the times entered by the user in the "Eclipse Times to Remove from Data" field.
 

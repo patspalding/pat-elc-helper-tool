@@ -195,8 +195,14 @@ After the tool finishes these processes for each instrument, it writes individua
   When finding eclipse midpoints from fitting data, the tool may miss eclipses, or produce false positives in noisy data. Using the "Reading ELC Eclipse Times File" option if there are known midpoints will typically give more reliable results.
 
 ### Detrending coverage requirement
-  The detrender requires a minimum of 5 data points on each side of an eclipse midpoint in the out-of-eclipse region. Incomplete eclipses and  eclipses near the start or end of a data segment may be skipped.
+  The detrender requires a minimum of 5 data points on each side of an eclipse midpoint in the out-of-eclipse region. Incomplete eclipses and eclipses near the start or end of a data segment may be skipped.
 
 ### TESS and Kepler data combined runs
 
   When both instruments are selected, eclipse detection is run independently per instrument. If eclipse depths or durations differ significantly between instruments (due to e.g. contamination), the same bounds may not be optimal for both. Consider running instruments separately if results are inconsistent.
+
+## TODO
+
+### Define different depths and durations for different eclipse types
+
+  I am currently working on allowing the user to define multiple eclipse types when setting depth and duration limits. This way, instead of having to set a single set of upper and lower bounds for all eclipses, the user will be able to, for example, set different bounds for primary and secondary eclipses, or for different planetary transits. This should help fix some of the known issues with the tool.
